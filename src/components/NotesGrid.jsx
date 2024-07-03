@@ -27,6 +27,7 @@ const NotesGrid = ({isArchived=false, title="NOTES"}) => {
         const res = await fetch(`${url}`, {
             headers : {
                 accept: 'application/json',
+                'Content-Type': 'application/json'
             }
         })
         const data = await res.json()

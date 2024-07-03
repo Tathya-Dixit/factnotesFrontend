@@ -32,6 +32,7 @@ const NotesDetailPage = () => {
       const res = await fetch(`${url + id}`, {
         headers : {
             accept: 'application/json',
+            'Content-Type': 'application/json'
         }
     })
       const data = await res.json()
