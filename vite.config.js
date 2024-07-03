@@ -7,7 +7,7 @@ export default defineConfig({
     port : 3000,
     proxy : {
       '/api': {
-        target : 'https://factnotesbackend.onrender.com:8000',
+        target : 'https://factnotesbackend.onrender.com/',
         changeOrigin : true,
       }
   }
