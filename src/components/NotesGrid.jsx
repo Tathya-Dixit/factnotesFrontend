@@ -15,7 +15,7 @@ const NotesGrid = ({isArchived=false, title="NOTES"}) => {
     const [loading,setLoading] = useState(true)
     const data = notes?.filter((item,i) => item.archived == isArchived)
     const navigate = useNavigate()
-    const url = "/api/notes/"
+    const url = "https://factnotesbackend.onrender.com/api/notes/"
 
     useEffect(() => {
         fetchnotes()

@@ -17,8 +17,7 @@ const NotesDetailPage = () => {
   const [note, setNote] = useState([])
   const [loading, setLoading] = useState(true)
   const [isArchived,setIsArchived] = useState(false)
-  const url = "/api/notes/"
-
+  const url = "https://factnotesbackend.onrender.com/api/notes/"
 
   useEffect(() => {
     fetchNote()
