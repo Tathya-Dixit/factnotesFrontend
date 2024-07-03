@@ -31,7 +31,6 @@ const NotesDetailPage = () => {
     else{
       const res = await fetch(`${url + id}`, {
         headers : {
-            accept: 'application/json',
             'Content-Type': 'application/json'
         }
     })
@@ -46,7 +45,7 @@ const NotesDetailPage = () => {
     await fetch(`${url + id}/`, {
       method: 'PUT',
       headers: {
-        accept:"application/json",
+        
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ ...note,"archived":isArchived})
@@ -57,7 +56,7 @@ const NotesDetailPage = () => {
     await fetch(`${url}`, {
       method: 'POST',
       headers: {
-        accept:"application/json",
+        
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ ...note,"archived":isArchived})
