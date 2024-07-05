@@ -14,11 +14,9 @@ function Navbar() {
         </NavLink>
         <div className=" col-span-1">
           <ul className='flex w-full h-full items-center justify-center'>
-            <li className={'flex items-center'}><NavLink to={"/"} className={({isActive}) => isActive ? 'p-[0.75em] font-albert text-lg border-b-4 border-gray-700' : 'p-[0.75em] font-albert text-lg'} href="">Notes</NavLink></li>
-            <li className={'flex items-center'}><NavLink to={"/archived"} className={({isActive}) => isActive ? 'p-[0.75em] font-albert text-lg border-b-4 border-gray-700' : 'p-[0.75em] font-albert text-lg'} href="">Archived</NavLink></li>
-            {/* <li className={'flex items-center'}><NavLink to={"/about"} className={({isActive}) => isActive ? 'p-[0.75em] font-albert text-lg border-b-4 border-gray-700' : 'p-[0.75em] font-albert text-lg'} href="">About Us</NavLink></li>
-            <li className={'flex items-center'}><NavLink to={"/contact"} className={({isActive}) => isActive ? 'p-[0.75em] font-albert text-lg border-b-4 border-gray-700' : 'p-[0.75em] font-albert text-lg'} href="">Contact Us</NavLink></li> */}
-          </ul>
+            <li className={'flex items-center'}><NavLink to={"/"} className={({isActive}) => isActive ? 'p-[0.75em] font-albert font-bold text-xl border-b-4 border-gray-700' : 'p-[0.75em] font-albert font-bold text-xl'} href="">Notes</NavLink></li>
+            <li className={'flex items-center'}><NavLink to={"/archived"} className={({isActive}) => isActive ? 'p-[0.75em] font-albert font-bold text-xl border-b-4 border-gray-700' : 'p-[0.75em] font-albert font-bold text-xl'} href="">Archived</NavLink></li>
+            </ul>
         </div>
         <div className=" col-span-1 flex content-center justify-end">
             <div className="text-white font-play font-semibold flex rounded-xl p-2 bg-gray-700 w-fit justify-end items-center text-lg hover:text-gray-200">
