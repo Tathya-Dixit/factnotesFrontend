@@ -8,6 +8,7 @@ import LoaderPulse from './LoaderPulse'
 import { FaPencilAlt } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineDeleteForever } from "react-icons/md";
+import moment from 'moment';
 
 
 
@@ -16,6 +17,7 @@ const NotesGrid = ({isArchived=false, title="NOTES"}) => {
     const [loading,setLoading] = useState(true)
     const data = notes?.filter((item,i) => item.archived == isArchived)
     const navigate = useNavigate()
+    const [del, setDeleting] = useState(false)
     const url = "https://factnotesbackend.onrender.com/api/notes/"
 
     useEffect(() => {
@@ -37,9 +39,11 @@ const NotesGrid = ({isArchived=false, title="NOTES"}) => {
     }
     
     let deleteNote = async (id) => {
+        setDeleting(true)
         await fetch(`${url + id}/`, {
           method: "DELETE",
         })
+        setDeleting(false)
         window.location.reload();
 
       }
@@ -55,6 +59,7 @@ const NotesGrid = ({isArchived=false, title="NOTES"}) => {
                 <LoaderPulse/>
             </div>
         </div>):(
+            <div>
         <div className='grid gap-4 mx-24 z-10 relative sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4'>
             {data?.map((note,i) => (
                 <div key = {i} className='flex flex-col max-h-full justify-between text-white bg-gray-700 border-2 border-gray-500 rounded-xl p-5'>
@@ -64,11 +69,15 @@ const NotesGrid = ({isArchived=false, title="NOTES"}) => {
                     </Link>
                     <div className='flex justify-between items-center mt-10'>
                     <button onClick={() => deleteNote(note.id)} className='flex items-start z-20 ml-6' to="/"><h1 className='text-2xl font-semibold font-albert bg-red-400 p-3 rounded-xl'><MdOutlineDeleteForever className=''/></h1></button>
-                        <p className='m-2 text-gray-400 text-end'>Last Updated : {note.updated}</p>
+                        <p className='m-2 text-gray-400 text-end'>Last Updated : {moment(note.updated).format('DD/MM/YYYY HH:mm')}</p>
                     </div>
                 </div>
             ))}
-        </div>)}
+        </div>
+        {del? (<div role="status" class="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
+            <div className="loader"></div><h1 className='text-xl font-bold'>Deleting...</h1></div>):("")}
+            </div>
+    )}
     </div>
   )
 }
