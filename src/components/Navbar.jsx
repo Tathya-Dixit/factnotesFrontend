@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/notelogo.png'
 import { useLocation } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
+import { HiStar } from "react-icons/hi2";
 
 function Navbar() {
   const location = useLocation()
@@ -20,7 +21,7 @@ function Navbar() {
         </div>
         <div className=" col-span-1 flex content-center justify-end">
             <div className="text-white font-play font-semibold flex rounded-xl p-2 bg-gray-700 w-fit justify-end items-center text-lg hover:text-gray-200">
-              <a href="" className='mx-3'><FaSearch /></a>
+              <a href="" className='mx-3'><HiStar className='h-8 w-8'/></a>
             </div>
         </div>
     </nav>

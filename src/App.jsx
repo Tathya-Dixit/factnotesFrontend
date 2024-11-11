@@ -11,7 +11,7 @@ import Homered from './components/Homered'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
-      <Route index element={<HomePage />}/>
+      <Route path='/' element={<HomePage />}/>
       <Route path='/archived' element={<ArchivedPage />}/>
       <Route path='/notes/:id' element={<NotesDetailPage />}/>
       <Route path='/home' element={<Homered />}/>
